@@ -2,7 +2,7 @@
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOTEST=$(GOCMD) test
-DEPCMD=dep
+GOMOD=$(GOCMD) mod
 BINARY_NAME=can
 BINARY_UNIX=$(BINARY_NAME)_unix
 
@@ -18,7 +18,7 @@ run:
 		$(GOBUILD) -o $(BINARY_NAME) -v ./...
 		./$(BINARY_NAME)
 deps:
-		$(DEPCMD) ensure
+		$(GOMOD) download
 
 # Cross compilation
 build-linux:
